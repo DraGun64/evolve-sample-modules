@@ -3,9 +3,11 @@ export function getDescription() {
         description: "hello-html",
         input: [
             {
-                description: "response",
-                displayName: "response",
                 id: "response",
+                displayName: "Response",
+                description: "response",
+                defaultValue: "response://",
+                readonly: true,
                 required: true,
                 type: "OutputResource",
             },
