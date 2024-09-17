@@ -3,5 +3,5 @@
   "displayName": "Hello World (HTML response)",
   "fromVersion": "24.10.1.1",
   "name": "hello-html",
-  "private": true,
+  "private": true
 }
