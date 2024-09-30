@@ -1,0 +1,8 @@
+{
+  "name": "resource-copy",
+  "displayName": "Resource Copy",
+  "description": "Copies input resource into output resource.",
+  "fromVersion": "24.10.1.1",
+  "toVersion": null,
+  "private": true
+}

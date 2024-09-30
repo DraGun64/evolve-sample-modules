@@ -1,0 +1,8 @@
+{
+  "name": "multiple-resource-copy",
+  "displayName": "Multiple Resource Copy",
+  "description": "Copies multiple resources into a target directory. It has no size limit; the amount of transferred data is only limited by the step timeout.",
+  "fromVersion": "24.10.1.1",
+  "toVersion": null,
+  "private": true
+}
