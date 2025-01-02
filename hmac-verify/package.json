@@ -1,0 +1,8 @@
+{
+  "name": "hmac-verify",
+  "displayName": "HMAC Verify operation",
+  "description": "Verifies a file using HMAC against the signature from a file.",
+  "fromVersion": "24.10.1.1",
+  "toVersion": null,
+  "private": true
+}

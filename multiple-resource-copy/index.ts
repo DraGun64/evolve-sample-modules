@@ -1,8 +1,7 @@
 export function getDescription(): ScriptDescription {
     return {
         displayName: "Multiple Resource Copy",
-        description:
-            "Copies multiple resources into a target directory. It has no size limit; the amount of transferred data is only limited by the step timeout.",
+        description: "Copies multiple resources into a target directory. It has no size limit; the amount of transferred data is only limited by the step timeout.",
         category: "Utilities",
         input: [
             {
@@ -92,7 +91,7 @@ export async function execute(context: Context): Promise<Output | void> {
         `Starting to copy the resources from '${parameters.sourceDirectoryPath}' (source directory) to '${parameters.targetDirectoryPath}' (target directory) ` +
             `using the '${parameters.strategy}' strategy, ` +
             `the '${parameters.mask ?? ""}' mask ` +
-            `and the '${parameters.failIfNoFilesFound ? NoFilesFoundStrategy.Fail : NoFilesFoundStrategy.Pass}' strategy if no files found.`
+            `and the '${parameters.failIfNoFilesFound ? NoFilesFoundStrategy.Fail : NoFilesFoundStrategy.Pass}' strategy if no files found.`,
     );
 
     const sourceDirectory = context.getDirectory(parameters.sourceDirectoryPath);

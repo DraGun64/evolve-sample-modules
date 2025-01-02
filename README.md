@@ -25,7 +25,8 @@ If field fromVersion and toVersion are not present, the module is considered to 
 If you have a module that you think would be useful for others, you can add it to this repository:
 1. Create a new directory in the root of the repository.
 2. Add the index.ts and package.json files to the directory.
-3. Commit the changes to the repository.
-4. Create a pull request to the main branch of the repository.
-5. Once our developers approve the pull request, the sample module will be available to all users. Note that it may take some time for the module to be available.
-6. If you want to update the module, you can do so by updating the files in the directory and creating a new pull request.
+3. Run "run-prettier.sh" to format the index.ts file.
+4. Commit the changes to the repository.
+5. Create a pull request to the main branch of the repository.
+6. Once our developers approve the pull request, the sample module will be available to all users. Note that it may take some time for the module to be available.
+7. If you want to update the module, you can do so by updating the files in the directory and creating a new pull request.
