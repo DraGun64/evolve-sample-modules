@@ -5,7 +5,7 @@ export function getDescription() {
             {
                 id: "fileToSign",
                 displayName: "File to be signed",
-                description: "File to be signed",
+                description: "File to be signed.",
                 type: "InputResource",
                 required: true,
             },
@@ -19,7 +19,7 @@ export function getDescription() {
             {
                 id: "hmacHashAlgorithmName",
                 displayName: "Hmac Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512)",
-                description: "Hmac Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512)",
+                description: "Hmac Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512).",
                 type: "String",
                 defaultValue: "SHA-256",
                 required: true,
@@ -27,7 +27,7 @@ export function getDescription() {
             {
                 id: "fileSignature",
                 displayName: "File signature",
-                description: "File signature",
+                description: "File signature.",
                 type: "InputResource",
                 required: true,
             },

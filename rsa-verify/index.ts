@@ -5,7 +5,7 @@ export function getDescription() {
             {
                 id: "fileToVerify",
                 displayName: "Large file to be verified",
-                description: "Large file to be verified",
+                description: "Large file to be verified.",
                 type: "InputResource",
                 required: true,
             },
@@ -19,7 +19,7 @@ export function getDescription() {
             {
                 id: "rsaAlgorithmName",
                 displayName: "Rsa Algorithm Name (RSASSA-PKCS1-v1_5, RSA-PSS)",
-                description: "Rsa Algorithm Name (RSASSA-PKCS1-v1_5, RSA-PSS)",
+                description: "Rsa Algorithm Name (RSASSA-PKCS1-v1_5, RSA-PSS).",
                 type: "String",
                 defaultValue: "RSASSA-PKCS1-v1_5",
                 required: true,
@@ -27,7 +27,7 @@ export function getDescription() {
             {
                 id: "rsaHashAlgorithmName",
                 displayName: "Rsa Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512)",
-                description: "Rsa Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512)",
+                description: "Rsa Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512).",
                 type: "String",
                 defaultValue: "SHA-256",
                 required: true,
@@ -35,7 +35,7 @@ export function getDescription() {
             {
                 id: "fileSignature",
                 displayName: "Output file signature",
-                description: "Contains the created signature (type Connector used because this files is written and read in this example)",
+                description: "Contains the created signature (type Connector used because this files is written and read in this example).",
                 type: "Connector",
                 required: true,
             },
