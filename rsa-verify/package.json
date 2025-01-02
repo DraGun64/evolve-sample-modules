@@ -1,0 +1,8 @@
+{
+  "name": "rsa-verify",
+  "displayName": "RSA Verify operation",
+  "description": "Verifies a file using RSA against the signature from a file",
+  "fromVersion": "24.10.1.1",
+  "toVersion": null,
+  "private": true
+}
