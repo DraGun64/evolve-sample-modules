@@ -41,9 +41,7 @@ export async function execute(context: Context): Promise<Output | void> {
     const targetFilePath = context.parameters.target as string;
     const strategy = context.parameters.strategy as string;
 
-    console.log(
-        `Starting to copy the resource from '${sourceFilePath}' (source file) to '${targetFilePath}' (target file) using the '${strategy}' strategy.`
-    );
+    console.log(`Starting to copy the resource from '${sourceFilePath}' (source file) to '${targetFilePath}' (target file) using the '${strategy}' strategy.`);
 
     const targetFile = context.getFile(targetFilePath);
 

@@ -40,4 +40,3 @@ const html = `<!DOCTYPE html>
 	</body>
 </html>
 `;
-

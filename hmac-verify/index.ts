@@ -1,93 +1,87 @@
 export function getDescription() {
-  return {
-    description: "Hmac Sign and Verify",
-    input: [
-      {
-        id: "fileToSign",
-        displayName: "File to be signed",
-        description: "File to be signed",
-        type: "InputResource",
-        required: true,
-      },
-      {
-        id: "cryptoSecretParameter",
-        displayName: "CryptoSecret Parameter",
-        description: "CryptoSecret parameter used as an Hmac secret.",
-        type: "CryptoSecret",
-        required: true,
-      },
-      {
-        id: "hmacHashAlgorithmName",
-        displayName: "Hmac Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512)",
-        description: "Hmac Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512)",
-        type: "String",
-        defaultValue: "SHA-256",
-        required: true,
-      },
-      {
-        id: "fileSignature",
-        displayName: "File signature",
-        description: "File signature",
-        type: "InputResource",
-        required: true,
-      },
-    ],
-    output: [
-      {
-        id: "isVerified",
-        type: "String",
-        displayName: "Is verified",
-        description: "Is verified.",
-      },
-    ],
-  } as const satisfies ScriptDescription;
+    return {
+        description: "Hmac Sign and Verify",
+        input: [
+            {
+                id: "fileToSign",
+                displayName: "File to be signed",
+                description: "File to be signed",
+                type: "InputResource",
+                required: true,
+            },
+            {
+                id: "cryptoSecretParameter",
+                displayName: "CryptoSecret Parameter",
+                description: "CryptoSecret parameter used as an Hmac secret.",
+                type: "CryptoSecret",
+                required: true,
+            },
+            {
+                id: "hmacHashAlgorithmName",
+                displayName: "Hmac Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512)",
+                description: "Hmac Hash Algorithm Name (SHA-1, SHA-256, SHA-384, SHA-512)",
+                type: "String",
+                defaultValue: "SHA-256",
+                required: true,
+            },
+            {
+                id: "fileSignature",
+                displayName: "File signature",
+                description: "File signature",
+                type: "InputResource",
+                required: true,
+            },
+        ],
+        output: [
+            {
+                id: "isVerified",
+                type: "String",
+                displayName: "Is verified",
+                description: "Is verified.",
+            },
+        ],
+    } as const satisfies ScriptDescription;
 }
 
 export async function execute(context: Context): Promise<Output> {
-  const dataBytes = await readBytes(context, context.parameters.fileToSign);
-  const secureByteArray = context.createSecureByteArray().append(dataBytes).append("plus we can use SecureByteArray to concat more data");
-  const signatureBytes = await readBytes(context, context.parameters.fileSignature);
+    const dataBytes = await readBytes(context, context.parameters.fileToSign);
+    const secureByteArray = context.createSecureByteArray().append(dataBytes).append("plus we can use SecureByteArray to concat more data");
+    const signatureBytes = await readBytes(context, context.parameters.fileSignature);
 
-  const verified = await verifyContent(context, signatureBytes, secureByteArray);
-  console.log("Verified: '" + verified + "'");
+    const verified = await verifyContent(context, signatureBytes, secureByteArray);
+    console.log("Verified: '" + verified + "'");
 
-  return {
-    isVerified: verified.toString(),
-  };
+    return {
+        isVerified: verified.toString(),
+    };
 }
 
 async function verifyContent(context: Context, signatureBytes: Uint8Array, contentBytes: SecureByteArray): Promise<boolean> {
-  const algorithmParams = { name: "HMAC", hash: context.parameters.hmacHashAlgorithmName };
-  const keyUse = ["verify"];
-  const publicKey = await crypto.subtle.importKey(
-      "cryptosecret",
-      context.parameters.cryptoSecretParameter,
-      algorithmParams,
-      false,
-      keyUse
-  );
+    const algorithmParams = { name: "HMAC", hash: context.parameters.hmacHashAlgorithmName };
+    const keyUse = ["verify"];
+    const publicKey = await crypto.subtle.importKey("cryptosecret", context.parameters.cryptoSecretParameter, algorithmParams, false, keyUse);
 
-  return await crypto.subtle.verify("HMAC", publicKey, signatureBytes, contentBytes);
+    return await crypto.subtle.verify("HMAC", publicKey, signatureBytes, contentBytes);
 }
 
 async function readBytes(context: Context, filePath: string): Promise<Uint8Array> {
-  const readableStream = await context.openRead(filePath);
+    const readableStream = await context.openRead(filePath);
 
-  const values: Uint8Array[] = [];
-  for await (const value of readableStream) {
-    values.push(value);
-  }
+    const values: Uint8Array[] = [];
+    for await (const value of readableStream) {
+        values.push(value);
+    }
 
-  const contentBytes = concatUint8Arrays(values);
+    const contentBytes = concatUint8Arrays(values);
 
-  return contentBytes;
+    return contentBytes;
 }
 
 function concatUint8Arrays(arrays: Uint8Array[]) {
-  const flatNumberArray = arrays.reduce((accumulator, current) => {
-    accumulator.push(...current);
-    return accumulator;
-  }, []);
+    const flatNumberArray = arrays.reduce((accumulator, current) => {
+        accumulator.push(...current);
+        return accumulator;
+    }, []);
 
-  return new Uint8Array(flatNumberArray);
+    return new Uint8Array(flatNumberArray);
 }
