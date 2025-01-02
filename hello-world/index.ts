@@ -1,6 +1,6 @@
 export function getDescription() {
     return {
-        description: "Hello World",
+        description: "Hello World.",
         input: [],
         output: [],
     } as const satisfies ScriptDescription;

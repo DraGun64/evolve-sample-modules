@@ -1,6 +1,6 @@
 export function getDescription() {
     return {
-        description: "Rsa Sign",
+        description: "Rsa Sign.",
         input: [
             {
                 id: "fileToSign",
@@ -12,7 +12,7 @@ export function getDescription() {
             {
                 id: "privateCertificate",
                 displayName: "Private Certificate",
-                description: "Private Certificate",
+                description: "Private Certificate.",
                 type: "Certificate",
                 required: true,
             },

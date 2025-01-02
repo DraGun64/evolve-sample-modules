@@ -1,6 +1,6 @@
 export function getDescription() {
     return {
-        description: "Rsa Verify",
+        description: "Rsa Verify.",
         input: [
             {
                 id: "fileToVerify",
@@ -12,7 +12,7 @@ export function getDescription() {
             {
                 id: "publicCertificate",
                 displayName: "Public Certificate",
-                description: "Public Certificate",
+                description: "Public Certificate.",
                 type: "Certificate",
                 required: true,
             },

@@ -1,6 +1,6 @@
 export function getDescription() {
     return {
-        description: "Hmac Sign",
+        description: "Hmac Sign.",
         input: [
             {
                 id: "fileToSign",

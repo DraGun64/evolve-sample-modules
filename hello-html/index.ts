@@ -1,11 +1,11 @@
 export function getDescription() {
     return {
-        description: "hello-html",
+        description: "hello-html.",
         input: [
             {
                 id: "response",
                 displayName: "Response",
-                description: "response",
+                description: "Response.",
                 defaultValue: "response://",
                 readonly: true,
                 required: true,
