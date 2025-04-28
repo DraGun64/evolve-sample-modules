@@ -8,6 +8,12 @@ export function getDescription() {
                 description: "URL to call - method POST",
                 type: "Connector",
             },
+            {
+                id: "body",
+                displayName: "Body",
+                description: "Body to send to the endpoint",
+                type: "String", 
+            }
         ],
         output: [],
     } as const satisfies ScriptDescription;
@@ -17,7 +23,7 @@ export async function execute(context): Promise<Output> {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Accept", "application/json");
-    const body = `{ "id": 78912 }`;
+    const body = context.parameters.body;
 
     const requestOptions = {
         headers: headers,
